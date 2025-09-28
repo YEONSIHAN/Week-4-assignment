@@ -1,0 +1,28 @@
+#include <iostream>
+using namespace std;
+
+class Computer1 {
+private:// 새로운 컴퓨터에 가져가도 쓰지 못할 것.
+	string Motherboard = "PRIME Z690-P";
+
+public://새로운 컴퓨터에 가져가도 상관없는거.
+	string RAM = "32GB";
+protected:// 무좋건 상속 받아서 가져갈려고 하는 것.
+	string graphicscard3060Ti = "RTX 3060 Ti";
+	string cpu = "i9-12900f";
+};
+
+class Computer2 : public Computer1 {
+	public:
+	void show() {
+		cout << "Motherboard: " << endl; // private라서 안나옴.
+		cout << "RAM: " << RAM << endl;
+		cout << "graphicscard3060Ti: " << graphicscard3060Ti << endl;
+		cout << "cpu: " << cpu << endl;
+	}
+};
+int main()
+{
+	Computer2 mycomputer;
+	mycomputer.show();
+}
